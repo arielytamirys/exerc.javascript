@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Carros JS Object</title>
+</head>
+
+<body>
+    <h1>Cadastro de Carros</h1>
+    <form action="">
+        <fieldset>
+            <legend>Cadastro de Carros</legend>
+
+            <label for="marca">Marca</label>
+            <input type="text" id="marca">
+            <br>
+
+            <label for="modelo">Modelo</label>
+            <input type="text" id="modelo">
+            <br>
+
+            <label for="ano">Ano</label>
+            <input type="number" id="ano">
+            <br>
+
+            <label for="potencia">Potência</label>
+            <input type="number" id="potencia">
+            <br>
+            <br>
+
+            <button onclick="cadastrar()">Cadastrar</button>
+        </fieldset>
+    </form>
+
+    <section id="lista-carros"></section>
+
+
+    <script>
+        let arrCarros = []; //array vazio
+
+        function cadastrar() {
+            event.preventDefault();//parar o submit do formulário
+
+            //pegar os dados
+            let marca = document.getElementById('marca').value;
+            let modelo = document.getElementById('modelo').value;
+            let ano = document.getElementById('ano').value;
+            let potencia = document.getElementById('potencia').value;
+
+            if (marca == '') {
+                alert('preencha tods os campos')
+                return false;
+            }
+
+
+
+            //criar um objeto
+
+
+            let carro = {
+                marca,
+                modelo,
+                ano: ano,
+                potencia: potencia
+            };
+
+            //guardar no array
+            arrCarros.push(carro);
+
+            console.log(arrCarros);
+
+            let template = '';//template vazio
+            for (let i = 0; index < arrcarro.length; i++) {
+                //gerar/acumular o template
+                template += ´
+
+            <article>
+                    <h4>${arrcarros[i].modelo}</h4>
+                    <p>${arrcarros[i].marca}</p>
+                    
+                    <p>${arrcarros[i].ano}</p>
+                    
+                    <p>${arrcarros[i].potencial} cv</p>
+                    
+                </article>
+
+                ´;
+
+            }
+
+
+            <article>
+                <h4>Ford ka</h4>
+                <p>Marca: Ford</p>
+       // <p>Ano: 2005</p>
+       // <p>Potencia: 120cv</p>
+   // </article>
+
+   document.getElementById('lisa-carros').innerHTML = template;
+
+
+        }
+    </script>
+</body>
+
+</html>
